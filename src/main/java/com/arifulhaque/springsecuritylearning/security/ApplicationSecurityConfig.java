@@ -1,5 +1,6 @@
 package com.arifulhaque.springsecuritylearning.security;
 
+import com.arifulhaque.springsecuritylearning.security.user.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,13 +46,13 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails userAriful = User.builder()
                 .username("arifulhb")
                 .password(passwordEncoder.encode("password"))
-                .roles("STUDENT") // ROLE_STUDENT
+                .roles(UserRole.STUDENT.name()) // ROLE_STUDENT
                 .build();
 
         UserDetails tajia = User.builder()
                 .username("tajia")
                 .password(passwordEncoder.encode("password"))
-                .roles("ADMIN")
+                .roles(UserRole.ADMIN.name())
                 .build();
 
         return new InMemoryUserDetailsManager(
