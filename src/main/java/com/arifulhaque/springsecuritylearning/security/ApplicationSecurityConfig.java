@@ -30,8 +30,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         // any requests must be authenticated using basic authentication
         http
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*", "/dist/*", "/admin/dist/*")
-                .permitAll()
+                .antMatchers("/", "index", "/css/*", "/js/*", "/dist/*", "/admin/dist/*").permitAll()
+                .antMatchers("/api/**").hasRole(UserRole.STUDENT.name()) // ROLE BASED ACCESS CONTROL
                 .anyRequest()
                 .authenticated()
                 .and()
