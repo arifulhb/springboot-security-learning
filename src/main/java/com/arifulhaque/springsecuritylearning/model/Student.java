@@ -12,4 +12,12 @@ public class Student {
         this.studentId = studentId;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + studentId +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
