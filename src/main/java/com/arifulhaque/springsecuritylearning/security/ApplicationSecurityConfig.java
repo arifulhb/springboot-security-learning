@@ -15,6 +15,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         // any requests must be authenticated using basic authentication
         http
                 .authorizeRequests()
+                .antMatchers("/", "index", "/css/*", "/js/*", "/dist/*", "/admin/dist/*")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
